@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>javascript点击相同的链接或者按钮两次触发不同的事件/title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function do1(obj){
+	    alert(1)
+	    // 注意：在do2方法后面没有括号
+	    obj.onclick = do2;
+	}
+	function do2(){
+	    alert(2)
+	}
+	</script>
+
+	<a href="#" onclick="do1(this);">xxx</a>
+</body>
+</html>
