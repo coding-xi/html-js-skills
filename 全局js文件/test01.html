@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多个html文件共享一个js变量</title>
+	</head>
+	<body>
+		<input type="text" id="aa"/>
+		
+		<script type="application/javascript" src="js/jquery-3.1.0.js"></script>
+		<!--<script type = "application/javascript" src = "js/test01.js"></script>-->
+		
+<!--//			$(function(){
+//				  
+//              var Request = new Object();  
+//              Request = GetRequest();  
+//              var loginName =Request["loginName"]; //获取loginName值  
+//              $("#loginName").val(loginName);//给隐藏域赋值  
+//          });  
+//          //获取url中的参数  
+//          function GetRequest() {  
+//              var url = location.search; //获取url中"?"符后的字串  
+//              var theRequest = new Object();  
+//              if (url.indexOf("?") != -1) {  
+//                  var str = url.substr(1);  
+//                  strs = str.split("&");  
+//                  for (var i = 0; i < strs.length; i++) {  
+//                      theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);  
+//                  }  
+//              }  
+//              return theRequest;  -->
+		
+		<script>
+			$(function(){
+				var Request = new Object();  
+	            Request = GetRequest(); 
+	            var id =Request["id"]; //获取loginName值  
+                //alert(id);
+                $("#aa").val(id)
+			});
+			
+			function GetRequest() {
+				var url = location.search; //获取url中"?"符后的字串  
+				//alert(url);
+                var theRequest = new Object();  
+                if (url.indexOf("?") != -1) {  
+                  var str = url.substr(1);  //截取?到后面的所有字符
+                  strs = str.split("&");  
+                  for (var i = 0; i < strs.length; i++) {  
+                      theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);  
+                  }  
+              }  
+              return theRequest;
+			}
+		</script>
+	</body>
+</html>

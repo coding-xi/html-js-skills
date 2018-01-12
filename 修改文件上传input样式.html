@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <title>测试修改文件上传input样式</title>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+		.rowInput {  
+		    margin: 20px auto;  
+		    width: 450px;  
+		}  
+  
+		.inputLabel {  
+		    display: inline-block;  
+		    width: 120px;  
+		    text-align: right;  
+		    margin-right: 20px;  
+		}  
+		  
+		.Btn {  
+		    padding: 6px 12px;  
+		    width: 80px;  
+		    font-size: 14px;  
+		    font-weight: 400;  
+		    text-align: center;  
+		    white-space: nowrap;  
+		    vertical-align: middle;  
+		    cursor: pointer;  
+		    border: 1px solid transparent;  
+		    border-radius: 4px;  
+		    margin: 2px;  
+		    background-color: #69b755;  
+		    color: #fff;  
+		    margin-bottom: 10px;  
+		}  
+		.hidden {
+			display: none;
+		}
+    </style>
+    
+</head>
+
+<body>
+	<form id="uploadForm" type="post" enctype="multipart/form-data">
+	    <div class="rowInput">
+	        <label class="">用户数据:</label>
+	        <input name="file" type="file" size="50" id="file" class="hidden" />
+	        <input name="userWarehouseFile" type="text" id="userWarehouseFile" />
+	        <label id="scan" class="Btn" onClick="selectFile()">资源上传</label>
+	    </div>
+
+	    <div class="rowInput">
+	        <label class="inputLabel"></label>
+	        <button class="Btn sub_btn" >导入</button>   
+	    </div>
+
+		<a href="http://static.community.com/upload/resource/2018/01/12/2018011204014380607804.SublimeTextBuild3084.rar">压缩包链接</a>
+		<a href="http://static.community.com/upload/resource/2018/01/12/2018011204355334905643.测试.jpg">图片链接</a>
+	    <script>  
+          function selectFile() {  
+               $("#file").trigger("click");  
+           }  
+           //把文件名截取出来
+			function getFileName(o){
+			    var pos=o.lastIndexOf("\\");
+			    return o.substring(pos+1);  
+			}
+
+			$(".sub_btn").click(function() {
+               doZipFilesUpload();
+            })
+
+			function doZipFilesUpload() {
+	            var formData = new FormData($('#uploadForm')[0]);
+	            alert(formData);
+            }
+           $(document).ready(function () {  
+               $("#file").change(function(){  
+                   var value = $("#file").val();  
+                   //把文件名截取出来
+                   var fileName = getFileName(value);
+                   $("#userWarehouseFile").val(fileName);
+               });  
+           });  
+       </script>  
+    </form>
+</body>
+
+</html>
