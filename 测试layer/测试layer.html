@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>测试layer弹窗</title>
+	<!-- <link rel="stylesheet" type="text/css" href="layui/css/layui.css"> -->
+
+</head>
+<body>
+
+
+
+
+
+<script type="text/javascript">
+		$(function(){
+			alert("a")
+			//这个是单独的layer弹窗
+			layer.msg('hello'); 
+			//加载层
+			//var index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+
+
+			//下面是用layui框架来做的弹窗
+			// layui.use('layer', function(){
+	  // 			var layer = layui.layer;
+	  
+			// 	  layer.msg('hello');
+			// });              
+		})
+</script>
+
+<!-- 如果采用单独的layer的话， 只需要下载layer压缩包即可，并引入其中的layer.js文件
+	   注意：在引入layer.js之前，要先引入jquey1.8以上版本文件，因为layer.js使用jquey写的
+-->
+ <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+ <script type="text/javascript" src="layer/layer.js"></script>
+
+
+  <!-- 注意：如果采用layui框架的话，则需要按照下载layui框架的layerui压缩包的文件结构来放置文件结构。
+		不能把文件拆分，否则就会报错的。采用这种方式，需要引入layui.js和layui.css文件
+   -->
+  <!-- <script type="text/javascript" src="layui/layui.js"></script> -->
+
+</body>
+
+
+
+</html>
