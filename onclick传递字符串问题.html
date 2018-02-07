@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试js onclick事件传递字符串问题</title>
+</head>
+<body>
+	<a class="test">ff</a>
+
+
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var resourceId = 1;
+			var username = "wangxi";
+			$(".test")
+				.attr("href","javascript:void(0)")
+				.attr("str","aaa")
+				 .attr("onclick","comment(this," + resourceId + "," +  + username +  + ")")
+				//.attr("onclick","comment(this,this.attr(" + "str" +"))")
+		})
+		// function comment (e,resourceId) {
+		// 	alert(resourceId);
+		// }
+		function comment (e,resourceId,username) {
+			alert(resourceId);
+			alert(username);
+		}
+	</script>
+</body>
+</html>
